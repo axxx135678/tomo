@@ -6381,7 +6381,9 @@ insertRow(1, {"0":"时间跨度1", "1":"总结大纲", "2":"AM01"})
                     keys: ['TavernDB-ACU-ReadableDataTable-Key'],
                     enabled: true,
                     type: 'constant',
-                    order: allocOrder_ACU(at_depth, -10000, 1, 99999),
+                    // order: allocOrder_ACU(usedOrders, 99981, 1, 99999), // 原代码
+                    order: -10000, // [修改] 固定顺序
+                    depth: 1,      // [修改] 固定深度 @D 1
                     prevent_recursion: true,
                 };
                 await TavernHelper_API_ACU.createLorebookEntries(primaryLorebookName, [newDb2Entry]);
@@ -6398,7 +6400,9 @@ insertRow(1, {"0":"时间跨度1", "1":"总结大纲", "2":"AM01"})
                     keys: ['TavernDB-ACU-WrapperStart-Key'],
                     enabled: true,
                     type: 'constant',
-                    order: allocOrder_ACU(at_depth, -10000, 1, 99999),
+                    // order: allocOrder_ACU(usedOrders, 99980, 1, 99999), // 原代码
+                    order: -10000, // [修改] 固定顺序
+                    depth: 1,      // [修改] 固定深度 @D 1
                     prevent_recursion: true,
                 }]);
                 logDebug_ACU('Created wrapper start entry.');
@@ -6512,7 +6516,9 @@ insertRow(1, {"0":"时间跨度1", "1":"总结大纲", "2":"AM01"})
                     keys: ['TavernDB-ACU-WrapperEnd-Key'],
                     enabled: true,
                     type: 'constant',
-                    order: allocOrder_ACU(at_depth, -9999, 1, 99999),
+                    // order: allocOrder_ACU(usedOrders, 99999, 1, 99999), // 原代码
+                    order: -9999, // [修改] 固定顺序
+                    depth: 1,     // [修改] 固定深度 @D 1
                     prevent_recursion: true,
                 }]);
                 logDebug_ACU('Created wrapper end entry.');
